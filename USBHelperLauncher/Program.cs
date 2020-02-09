@@ -596,7 +596,7 @@ namespace USBHelperLauncher
 
             try
             {
-                var url = await debug.PublishAsync();
+                var url = await debug.PublishAsync(timeout: TimeSpan.FromSeconds(5));
                 Dispatcher.Invoke(new Action(() => Clipboard.SetText(url)));
                 MessageBox.Show("Debug message created and published, the link has been stored in your clipboard.\nProvide this link when reporting an issue.", "Debug message", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
